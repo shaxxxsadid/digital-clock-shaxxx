@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div id="time">
+        <div class="circle" style="--clr:#d996fa">
+            <svg>
+                <circle cx="245" cy="245" r="245" id="ss"></circle>
+            </svg>
+            <div class="dots sec_dot">
+            </div>
+        </div>
+        <div class="circle" style="--clr:#d96ffc">
+            <svg>
+                <circle cx="205" cy="205" r="205" id="mm"></circle>
+            </svg>
+            <div class="dots min_dot">
+            </div>
+        </div>
+        <div class="circle" style="--clr:#dc46fa">
+            <svg>
+                <circle cx="165" cy="165" r="165" id="hh"></circle>
+            </svg>
+            <div class="dots hour_dot">
+            </div>
+        </div>
+        <div class="timeBx">
+            <div id="hours" style="--colr:#fff">00</div>
+            <div id="minutes" style="--colr:#fff">00</div>
+            <div id="seconds" style="--colr:#fff">00</div>
+            <div class="ampm" style="--colr:#fff">
+                <div id="ampm" class="reveal">AM</div>
+            </div>
+            <div class="date" style="--colr:#fff"></div>
+        </div>
+        <div class="lang">
+            <div class="btns">
+                <div class="btn">
+                    <div class="textbtn">Format</div>
+                    <div class="textbtn">24 h</div>
+                    <div class="textbtn">12 h</div>
+                    <a class="btncont" id="timeformat"></a>
+                </div>
+                <div class="btn">
+                    <div class="textbtn lang">Language</div>
+                    <div class="textbtn">RU</div>
+                    <div class="textbtn eu">EU</div>
+                    <a class="btncont" id="lang"></a>
+                </div>
+            </div>
+        </div>
+        <div class="UTC">
+            <div class="btn">
+                <div class="textbtn">Local time</div>
+                <div class="textbtn">UTC time</div>
+                <a class="btncont" id="UTC"></a>
+                <ul class="UTCListBox hide">
+                    <li class="UTCitem">-8</li>
+                    <li class="UTCitem">-7</li>
+                    <li class="UTCitem">-6</li>
+                    <li class="UTCitem">-5</li>
+                    <li class="UTCitem">0</li>
+                    <li class="UTCitem">1</li>
+                    <li class="UTCitem">3</li>
+                    <li class="UTCitem">8</li>
+                    <li class="UTCitem">9</li>
+                    <li class="UTCitem">10</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

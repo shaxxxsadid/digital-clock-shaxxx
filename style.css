@@ -1,0 +1,444 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: url(images/Background.jpg);
+    background-size: cover;
+}
+
+#time {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#time .circle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#time .circle svg {
+    position: relative;
+    transform: rotate(270deg);
+}
+
+#time .circle:nth-child(1) svg {
+    width: 500px;
+    height: 500px;
+}
+
+#time .circle:nth-child(2) svg {
+    width: 420px;
+    height: 420px;
+}
+
+#time .circle:nth-child(3) svg {
+    width: 340px;
+    height: 340px;
+}
+
+#time .circle svg circle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke: var(--clr);
+    stroke-width: 7.5;
+    transform: translate(5px, 5px);
+    opacity: 0.45;
+    transition: 1s;
+}
+
+#time .circle:nth-child(1) svg circle {
+    stroke-dasharray: 1535;
+    stroke-dashoffset: 1535;
+}
+
+#time .circle:nth-child(2) svg circle {
+    stroke-dasharray: 1280;
+    stroke-dashoffset: 1280;
+}
+
+#time .circle:nth-child(3) svg circle {
+    stroke-dasharray: 1035;
+    stroke-dashoffset: 1035;
+}
+
+.dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+    transition: 0.99s;
+}
+
+.dots::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr),
+        0 0 40px var(--clr),
+        0 0 60px var(--clr),
+        0 0 80px var(--clr);
+}
+
+.timeBx {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+    gap: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.timeBx #hours::after,
+.timeBx #minutes::after {
+    content: ":";
+    position: absolute;
+    padding-left: 10px;
+}
+
+.timeBx div {
+    color: var(--colr);
+    text-shadow: 0 0 10px var(--colr);
+}
+
+.ampm {
+    display: flex;
+    position: absolute;
+    transform: translateY(-25px);
+    font-size: 0.6em;
+    right: 140px;
+}
+
+.reveal {
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+/* DATE */
+.date {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--colr);
+    text-shadow: 0 0 10px var(--colr);
+    font-weight: bold;
+    font-size: 20px;
+    transform: translateY(35px);
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+
+.action {
+    opacity: 0;
+    transition: opacity 0.5s linear;
+}
+
+/* settings btn */
+.btn {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(221, 220, 220);
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    z-index: 1;
+}
+
+.btn .textbtn {
+    display: flex;
+    position: absolute;
+    font-size: 1.3rem;
+    top: -30px;
+    color: #fff;
+}
+
+.btn a.btncont {
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    opacity: 0.25;
+}
+
+.lang {
+    display: flex;
+}
+
+.lang .btns {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: -150px;
+    left: 75px;
+    width: 350px;
+    height: 50px;
+    justify-content: space-between;
+
+}
+
+.lang .btns .btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    z-index: 1;
+}
+
+.lang .btns .btn .textbtn {
+    display: flex;
+    position: absolute;
+    top: -30px;
+    left: 15px;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.lang .btns .btn .textbtn:nth-child(2) {
+    left: 110px;
+    top: 12px;
+    width: 40px;
+}
+
+.lang .btns .btn .textbtn:nth-child(3) {
+    left: -50px;
+    top: 12px;
+}
+
+.lang .btns .btn .textbtn.eu {
+    left: -40px;
+}
+
+.lang .btns .btn .textbtn.lang {
+    left: 7px;
+}
+
+.lang .btns .btn a.btncont.active {
+    animation: .5s linear startlang;
+    left: 55px;
+}
+
+.btn a.btncont.active {
+    animation: .5s linear startlang;
+    left: 55px;
+}
+
+.btn .textbtn {
+    text-shadow: #fff 0px 0 20px;
+    font-weight: 500;
+}
+
+.lang .btns .btn a.btncont {
+    display: flex;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    color: rgb(54, 54, 54);
+    text-shadow: rgb(168, 168, 168) 1px 0 10px;
+    ;
+    animation: .5s linear backlang;
+}
+
+/* Global time */
+.UTC {
+    display: flex;
+    position: relative;
+    width: 550px;
+    height: auto;
+    right: -800px;
+    top: -375px;
+}
+
+.UTC .btn .btncont {
+    animation: .5s linear backlang;
+}
+
+.UTC .btn .textbtn {
+    top: 10px;
+}
+
+.UTC .btn .textbtn:nth-child(1) {
+    left: -100px;
+}
+
+.UTC .btn .textbtn:nth-child(2) {
+    left: 110px;
+    width: 100px;
+}
+
+.UTCListBox {
+    display: grid;
+    position: absolute;
+    background-color: rgba(77, 77, 77, 0.651);
+    width: 450px;
+    top: 100px;
+    left: -125px;
+    list-style: none;
+    padding: 10px 0 0 10px;
+    border: #5f6975 2px solid;
+    gap: 10px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .3s linear;
+}
+
+.UTCitem {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 400;
+    display: flex;
+    position: relative;
+    text-align: justify;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    letter-spacing: 1px;
+    height: 50px;
+    transition: opacity 0.6s linear;
+    transition: all 0.3s linear;
+    z-index: 1;
+    text-shadow: #fff 1px 0 10px;
+    width: 428px;
+}
+
+.UTCitem:hover {
+    text-shadow: rgb(58, 58, 58) 0px 0 10px;
+}
+
+.UTCitem.active {
+    text-shadow: rgb(58, 58, 58) 0px 0 10px;
+    background-color: rgb(174, 175, 175);
+    width: 428px;
+}
+
+.UTCitem::after {
+    position: absolute;
+    content: "";
+    width: 00px;
+    left: -2px;
+    height: 50px;
+    background-color: rgb(174, 175, 175);
+    transition: all 0.45s linear;
+    z-index: -1;
+}
+
+.UTCitem:hover::after {
+    transition: all 0.45s linear;
+    width: 430px;
+    z-index: -1;
+}
+
+.UTCitem.active:hover::after {
+    width: 0px;
+    transition: all 0.3s linear;
+}
+
+.UTCitem::before {
+    position: absolute;
+    content: "";
+    width: 0px;
+    height: 50px;
+    background-color: rgb(209, 209, 209);
+    transition: all 0.4s linear;
+    transition-delay: 0.15s;
+    z-index: -1;
+    left: -2px;
+}
+
+.UTCitem:hover::before {
+    transition: all 0.3s linear;
+    width: 430px;
+    z-index: -1;
+
+}
+
+.UTCitem.active:hover::before {
+    width: 0px;
+    transition: all 0.3s linear;
+}
+
+
+.hide {
+    cursor: default;
+    opacity: 0;
+    transition: all .3s linear;
+}
+
+@keyframes backlang {
+    0% {
+        left: 55px;
+    }
+
+    100% {
+        left: 5px;
+    }
+}
+
+@keyframes startlang {
+    0% {
+
+        left: 5px;
+    }
+
+    100% {
+
+        left: 55px;
+    }
+}
+
+@keyframes opacityA {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
